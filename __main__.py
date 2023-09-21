@@ -1,6 +1,7 @@
 """
 decode and encode from and into bottom using the official bottom spec
 """
+import argparse
 
 def encode(text: str) -> str:
     """
@@ -22,13 +23,13 @@ def encode(text: str) -> str:
                 output += "💖"
                 b -= 50
             elif b >= 10:
-                output += "✨",
+                output += "✨"
                 b -= 10
             elif b >= 5:
-                output += "🥺",
+                output += "🥺"
                 b -= 5
             elif b >= 1:
-                output += ",",
+                output += ","
                 b -= 1
             elif b >= 0:
                 output += "❤️"
@@ -74,7 +75,6 @@ def main():
     """
     main function
     """
-    import argparse
     parser = argparse.ArgumentParser(description="encode and decode bottom")
     parser.add_argument("-e", "--encode", help="encode text into bottom", action="store_true")
     parser.add_argument("-d", "--decode", help="decode bottom into text", action="store_true")
@@ -85,7 +85,6 @@ def main():
     elif args.decode:
         print(decode(args.text))
     else:
-        print("please specify encode or decode")
         ex = encode(args.text)
         print(ex)
         print(decode(ex))
